@@ -9,7 +9,7 @@ function TaskList() {
     const [taskSummary, setTaskSummary] = useState({ TotalCount: 0,available: 0, InProgressCount: 0, CompletedCount: 0, NotStartedCount: 0 })
 
     const getAllTasks = () => {
-        fetch("http://localhost:7000/task/all").then((res) => {
+        fetch("https://taskifiybackend.onrender.com/task/all").then((res) => {
             return res.json();
         }).then((result) => {
             setTasks(result)
@@ -18,7 +18,7 @@ function TaskList() {
         })
     }
     const getallavailabletask = ()=>{
-        fetch("http://localhost:7000/task/available").then((res) => {
+        fetch("https://taskifiybackend.onrender.com/task/available").then((res) => {
             return res.json();
         }).then((result) => {
             setTasks(result)
@@ -27,7 +27,7 @@ function TaskList() {
         })
     }
     const getTaskSummary = () => {
-        fetch(`http://localhost:7000/task/summary`).then((res) => {
+        fetch(`https://taskifiybackend.onrender.com/task/summary`).then((res) => {
             return res.json();
         }).then((result) => {
             console.log(result)
@@ -42,7 +42,7 @@ function TaskList() {
     }, [])
 
     const deletetask = (e, id) => {
-        fetch("http://localhost:7000/task/" + id, { method: "DELETE" }).then((res) => {
+        fetch("https://taskifiybackend.onrender.com/task/" + id, { method: "DELETE" }).then((res) => {
             return res.text;
         }).then((result) => {
             getAllTasks(result)
@@ -68,7 +68,7 @@ function TaskList() {
         } else {
             status = "inprogress"
         }
-        fetch("http://localhost:7000/task/update/" + id, { method: "PUT", headers: { "Content-type": "Application/Json" }, body: JSON.stringify({ status: status }) }).then((res) => {
+        fetch("https://taskifiybackend.onrender.com/task/update/" + id, { method: "PUT", headers: { "Content-type": "Application/Json" }, body: JSON.stringify({ status: status }) }).then((res) => {
             return res.json();
         }).then((result) => {
             getAllTasks(result)
@@ -81,7 +81,7 @@ function TaskList() {
            } else {
                status = "inprogress"
            }
-           fetch("http://localhost:7000/user/task/assigntask" ,{ method: "POST", headers: { "Content-type": "Application/Json" }, body: JSON.stringify({  taskId:taskId , userId:user.userId ,status:status }) }).then((res) => {
+           fetch("https://taskifiybackend.onrender.com/user/task/assigntask" ,{ method: "POST", headers: { "Content-type": "Application/Json" }, body: JSON.stringify({  taskId:taskId , userId:user.userId ,status:status }) }).then((res) => {
                return res.json();
            }).then((result) => {
                getAllTasks(result)
@@ -93,7 +93,7 @@ function TaskList() {
     
    }
     const getTasksbystatus = (status) => {
-        fetch("http://localhost:7000/task/bystatus/" + status).then((res) => {
+        fetch("https://taskifiybackend.onrender.com/task/bystatus/" + status).then((res) => {
             return res.json();
         }).then((result) => {
             setTasks(result)

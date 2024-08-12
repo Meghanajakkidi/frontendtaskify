@@ -32,7 +32,7 @@ function Signup() {
     }
     const signup = () => {
         console.log(userAuth)
-        fetch("http://localhost:7000/auth/signup", { method: "POST", headers: { "content-type": 'application/json' }, body: JSON.stringify(userAuth) }).then((res) => {
+        fetch("https://taskifiybackend.onrender.com/auth/signup", { method: "POST", headers: { "content-type": 'application/json' }, body: JSON.stringify(userAuth) }).then((res) => {
             return res.json();
         }).then((result) => {
             if (result.success) {

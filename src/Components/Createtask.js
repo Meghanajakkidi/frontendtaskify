@@ -17,7 +17,7 @@ function Createtask() {
         let taskerr = validatetaskform()
         setaskerr(taskerr)
         if(Object.keys(taskerr).length===0){
-          fetch("http://localhost:7000/task/create", { method: "POST", headers: { 'content-type': "application/json" }, body: JSON.stringify(taskData) }).then(function (res) {
+          fetch("https://taskifiybackend.onrender.com/task/create", { method: "POST", headers: { 'content-type': "application/json" }, body: JSON.stringify(taskData) }).then(function (res) {
             return res.json()
         }).then(function (result) {
             if(result._id){
