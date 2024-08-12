@@ -1,12 +1,11 @@
-
 import { useState, useEffect } from "react"
 
-function TaskList() {
+function Adminavaliabletask() {
     const [tasks, setTasks] = useState([])
     const [searchkey, setsearchkey] = useState("")
     const [filteredtask, setfilteredtask] = useState([])
     const [status, setstatus] = useState(["Alltasks", "completed", "inprogress", "not_started"])
-    const [taskSummary, setTaskSummary] = useState({ TotalCount: 0,available: 0, InProgressCount: 0, CompletedCount: 0, NotStartedCount: 0 })
+    const [taskSummary, setTaskSummary] = useState({TotalCount: 0, assigntaskcount: 0,available: 0, InProgressCount: 0, CompletedCount: 0 })
 
     const getAllTasks = () => {
         fetch("http://localhost:7000/task/all").then((res) => {
@@ -115,6 +114,14 @@ function TaskList() {
            
             <div className="demo">
                 <div className="row mt-3">
+                <div className="col-md-3">
+                        <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid blue' }}>
+                            <div className="card-body">
+                                <h5 className="card-title">total Tasks</h5>
+                                <p className="card-text count-task">{taskSummary.TotalCount}</p>
+                            </div>
+                        </div>
+                    </div>
                     <div className="col-md-3">
                         <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid blue' }}>
                             <div className="card-body">
@@ -123,15 +130,15 @@ function TaskList() {
                             </div>
                         </div>
                     </div>
-                   {/* <div className="col-md-3">
-                        <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid red' }}>
+                    <div className="col-md-3">
+                        <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid blue' }}>
                             <div className="card-body">
-                                <h5 className="card-title">Not Started Tasks</h5>
-                                <p className="card-text count-task">{taskSummary.NotStartedCount}</p>
-
+                                <h5 className="card-title">Assign Tasks</h5>
+                                <p className="card-text count-task">{taskSummary.assigntaskcount}</p>
                             </div>
                         </div>
                     </div>
+                    
                     <div className="col-md-3">
                         <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid orange' }}>
                             <div className="card-body">
@@ -147,7 +154,7 @@ function TaskList() {
                                 <p className="card-text count-task">{taskSummary.CompletedCount}</p>
                             </div>
                         </div>
-    </div>*/}
+    </div>
                 </div>
                 <h1>TASK LIST</h1>
                 <div className="row">
@@ -194,4 +201,4 @@ function TaskList() {
 }
 
 
-            export default TaskList
+            export default Adminavaliabletask

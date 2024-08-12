@@ -1,8 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-import ToDoList from './Components/ToDOList';
-import DispalyToDo from './Components/DisplayToDo';
+
 import TaskList from './Components/TaskList';
 import Loginroutes from './Components/Loginroutes';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
@@ -15,13 +14,17 @@ import Profile from './Components/Profile';
 import Changepassword from './Components/Changepassword';
 import Mytask from './Components/Mytask';
 import Users from './Components/Users';
+import Adminavaliabletask from './Components/admin/Admintask';
+
 
 function App() {
   return (
     <div className="container">
-      {/*<createTodo/>*/}
-      {/*<ToDoList/>
-        <DispalyToDo/>*/}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
+      
       <BrowserRouter>
        
         <Routes>
@@ -30,6 +33,7 @@ function App() {
           <Route element={<Loginroutes />}>
             <Route path="/" element={<Dashboard />}>
               <Route path="/" element={<TaskList />}></Route>
+              <Route path='adimntasks' element={<Adminavaliabletask/>}></Route>
               <Route path="mytask" element={<Mytask />}></Route>
               <Route path="create" element={<Createtask />}></Route>
               <Route path='users' element={<Users/>}></Route>

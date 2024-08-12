@@ -20,7 +20,7 @@ function Login() {
             errors.email="enter your email"
         }if(!password){
              errors.password="enter your pasword"
-        }
+        } 
            return errors
      }
      const loginform =()=>{
@@ -63,7 +63,7 @@ function Login() {
                    
                     </div>}
         </div>
-
+ 
     )
 }
 

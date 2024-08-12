@@ -15,7 +15,7 @@ function Users() {
         getAllUsers();
     })
     const accountactivatedeactivate = (e,id,active)=>{
-        const activeFlag = active?true:false
+        const activeFlag = active?false:true
            fetch("http://localhost:7000/auth/active_deactive" ,{ method: "PUT", headers: { "Content-type": "Application/Json" }, body: JSON.stringify({  id:id,active:activeFlag }) }).then((res) => {
                return res.json();
            }).then((result) => {
