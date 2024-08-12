@@ -13,7 +13,7 @@ function NavBar() {
         let userInfo = await localStorage.getItem("loggedinuser") && JSON.parse(localStorage.getItem("loggedinuser"))
         setUser(userInfo)
         if (userInfo) {
-            fetch("https://taskifiybackend.onrender.com/auth/profile/" + userInfo.email).then((res) => {
+            fetch("https://backendtaskifiy.onrender.com/auth/profile/" + userInfo.email).then((res) => {
                 return res.json();
             }).then((data) => {
                     console.log(data)
@@ -69,7 +69,7 @@ function NavBar() {
                         <li class="nav-item dropdown">
                             <Link class="nav-link" role="button" onClick={() => dropDownToggele()}>
                                 <div style={{width:'40px',height:'40px',borderRadius:'50%',background:'#ddd'}}>
-                                    <img src={`https://taskifiybackend.onrender.com/uploads/${profile?.profilepic}`} style={{width:'100%',height:'100%',borderRadius: '23px'}}/>
+                                    <img src={`https://backendtaskifiy.onrender.com/uploads/${profile?.profilepic}`} style={{width:'100%',height:'100%',borderRadius: '23px'}}/>
                                 </div>
                             </Link>
                             {isToggled && <div class="dropdown-menu" style={{ display: 'block' }}>

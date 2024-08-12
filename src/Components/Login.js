@@ -24,7 +24,7 @@ function Login() {
            return errors
      }
      const loginform =()=>{
-        fetch("https://taskifiybackend.onrender.com/auth/login", { method: "POST", headers: { "content-type": 'application/json' }, body:JSON.stringify({email,password}) } ).then((res) => {
+        fetch("https://backendtaskifiy.onrender.com/auth/login", { method: "POST", headers: { "content-type": 'application/json' }, body:JSON.stringify({email,password}) } ).then((res) => {
             return res.json();
         }).then((result)=>{
             if(result.success){

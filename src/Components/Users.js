@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 function Users() {
     const [users, setUsers] = useState([])
      const getAllUsers = async () => {
-        fetch("https://taskifiybackend.onrender.com/auth/users").then((res) => {
+        fetch("https://backendtaskifiy.onrender.com/auth/users").then((res) => {
             return res.json();
         }).then((result) => {
             console.log(result)
@@ -16,7 +16,7 @@ function Users() {
     })
     const accountactivatedeactivate = (e,id,active)=>{
         const activeFlag = active?false:true
-           fetch("https://taskifiybackend.onrender.com/auth/active_deactive" ,{ method: "PUT", headers: { "Content-type": "Application/Json" }, body: JSON.stringify({  id:id,active:activeFlag }) }).then((res) => {
+           fetch("https://backendtaskifiy.onrender.com/auth/active_deactive" ,{ method: "PUT", headers: { "Content-type": "Application/Json" }, body: JSON.stringify({  id:id,active:activeFlag }) }).then((res) => {
                return res.json();
            }).then((result) => {
                getAllUsers(result)

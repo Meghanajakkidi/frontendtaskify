@@ -9,7 +9,7 @@ function Mytask() {
 
     const getmyTasks = async () => {
         const user = await localStorage.getItem("loggedinuser") && JSON.parse(localStorage.getItem("loggedinuser"))
-        fetch("https://taskifiybackend.onrender.com/user/task/myTask/" + user.userId).then((res) => {
+        fetch("https://backendtaskifiy.onrender.com/user/task/myTask/" + user.userId).then((res) => {
             return res.json();
         }).then((result) => {
             setTasks(result)
@@ -18,7 +18,7 @@ function Mytask() {
     }
     const getTaskSummaryByUser = async ()=>{
         const user = await localStorage.getItem("loggedinuser") && JSON.parse(localStorage.getItem("loggedinuser"))
-        fetch("https://taskifiybackend.onrender.com/user/task/summary/"+ user?.userId).then((res) => {
+        fetch("https://backendtaskifiy.onrender.com/user/task/summary/"+ user?.userId).then((res) => {
             return res.json();
         }).then((result) => {
             setTaskSummary(result)
@@ -31,7 +31,7 @@ function Mytask() {
     }, [])
 
     const completetask = (e, id) => {
-        fetch("https://taskifiybackend.onrender.com/user/task/completeTask", { method: "PUT", headers: { "Content-type": "Application/Json" }, body: JSON.stringify({ id: id, status: "completed" }) }).then((res) => {
+        fetch("https://backendtaskifiy.onrender.com/user/task/completeTask", { method: "PUT", headers: { "Content-type": "Application/Json" }, body: JSON.stringify({ id: id, status: "completed" }) }).then((res) => {
             return res.json();
         }).then((result) => {
             getmyTasks();
@@ -57,7 +57,7 @@ function Mytask() {
 
     const getTasksbystatus = async (status) => {
         const user = await localStorage.getItem("loggedinuser") && JSON.parse(localStorage.getItem("loggedinuser"))
-        fetch(`https://taskifiybackend.onrender.com/user/task/${user.userId}/byStatus/${status}`).then((res) => {
+        fetch(`https://backendtaskifiy.onrender.com/user/task/${user.userId}/byStatus/${status}`).then((res) => {
             return res.json();
         }).then((result) => {
             setTasks(result)

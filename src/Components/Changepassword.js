@@ -36,7 +36,7 @@ function Changepassword(){
         let error = validateform()
         setaskerr(error)
         if(Object.keys(error).length===0){
-            fetch("https://taskifiybackend.onrender.com/auth/change", { method: "PUT", headers: { 'content-type': "application/json" }, body: JSON.stringify({email:user.email,currentpassword,newpassword}) }).then(function (res) {
+            fetch("https://backendtaskifiy.onrender.com/auth/change", { method: "PUT", headers: { 'content-type': "application/json" }, body: JSON.stringify({email:user.email,currentpassword,newpassword}) }).then(function (res) {
               return res.json()
           }).then(function (result) {
               if(result._id){

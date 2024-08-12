@@ -37,7 +37,7 @@ function Profile() {
                     </div>
 
                     {profile && <div className="card-body">
-                        <img src={`https://taskifiybackend.onrender.com/uploads/${profile.profilepic}`}/>
+                        <img src={`https://backendtaskifiy.onrender.com/uploads/${profile.profilepic}`}/>
                         <h5 className="card-title">{profile.fullName}</h5>
                         <p className="card-text">{profile.email}</p>
                         <Link className="btn btn-primary">Logout</Link>

@@ -1,4 +1,4 @@
-const API_URL="https://taskifiybackend.onrender.com/";
+const API_URL="https://backendtaskifiy.onrender.com/";
 export const apiService = {
     getUserProfile:async function(email){
     const API_ENDPOINT=API_URL+"/auth/profile/"+email;
